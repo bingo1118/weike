@@ -193,8 +193,6 @@ public class LineChartActivity extends MvpActivity<LineChartPresenter> implement
                             if(errorCode==0){
                                 threshold_h=response.getString("value208");
                                 threshold_l=response.getString("value207");
-                                getdatatime=response.getString("askTimes");
-                                uploaddatatime=response.getString("askTimes");
                                 if(isWater.equals("1")||isWater.equals("3")||isWater.equals("10")){
                                     low_value.setText("低水压阈值："+threshold_l+"kpa");
                                     high_value.setText("高水压阈值："+threshold_h+"kpa");
@@ -202,6 +200,8 @@ public class LineChartActivity extends MvpActivity<LineChartPresenter> implement
                                     low_value.setText("低水位阈值："+threshold_l+"m");
                                     high_value.setText("高水位阈值："+threshold_h+"m");
                                 }
+                                getdatatime=response.getString("askTimes");
+                                uploaddatatime=response.getString("askTimes");
                             }else{
                                 if(isWater.equals("1")||isWater.equals("3")){
                                     low_value.setText("低水压阈值:未设置");
@@ -601,13 +601,13 @@ public class LineChartActivity extends MvpActivity<LineChartPresenter> implement
                         try{
                             float high=Float.parseFloat(high_value.getText().toString());
                             float low=Float.parseFloat(low_value.getText().toString());
-                            float uploadtime=Float.parseFloat(uploadtime_value.getText().toString());
-                            float getdatatime=Float.parseFloat(getdatatime_value.getText().toString());
                             if(low>high){
                                 T.showShort(context,"低水位阈值不能高于高水位阈值");
                                 return;
                             }
                             if(devType==78){
+                                float uploadtime=Float.parseFloat(uploadtime_value.getText().toString());
+                                float getdatatime=Float.parseFloat(getdatatime_value.getText().toString());
                                 url= ConstantValues.SERVER_IP_NEW+"nanjing_set_water_data?imeiValue="+electricMac+"&deviceType="+devType
                                         +"&hight_set="+high+"&low_set="+low+"&send_time="+uploadtime+"&collect_time="+getdatatime;
                             }else{

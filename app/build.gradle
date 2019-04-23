@@ -15,8 +15,8 @@ android {
         applicationId "fire.cloud.smart.com.smartcloudfire_weike"
         minSdkVersion 16
         targetSdkVersion 19
-        versionCode 24
-        versionName "4.3.17"
+        versionCode 25
+        versionName "4.3.18"
         manifestPlaceholders = [
                 GETUI_APP_ID    : "j0Yrvte1ikAYmh6JTAV2d5",
                 GETUI_APP_KEY   : "rnczU2kRND7RqO570b5EQA",

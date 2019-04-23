@@ -242,7 +242,7 @@ public class ShopSmokeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                         public void onClick(View v) {
                             Intent intent = new Intent(mContext, LineChartActivity.class);
                             intent.putExtra("electricMac",normalSmoke.getMac());
-                            intent.putExtra("isWater","1");//@@是否为水压
+                            intent.putExtra("isWater",normalSmoke.getDeviceType()+"");//@@是否为水压
                             mContext.startActivity(intent);
                         }
                     });
@@ -262,7 +262,8 @@ public class ShopSmokeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                         public void onClick(View v) {
                             Intent intent = new Intent(mContext, LineChartActivity.class);
                             intent.putExtra("electricMac",normalSmoke.getMac());
-                            intent.putExtra("isWater","2");//@@是否为水压
+                            intent.putExtra("isWater",normalSmoke.getDeviceType()+"");//@@是否为水压
+                            intent.putExtra("devType",normalSmoke.getDeviceType());
                             mContext.startActivity(intent);
                         }
                     });
